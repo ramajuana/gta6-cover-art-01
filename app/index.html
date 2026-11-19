@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">NC</span>
+    <div>
+      <h1>Neon Coast Cover Studio</h1>
+      <p>Your photo, your words — poster cover art in one click.</p>
+    </div>
+  </div>
+  <p class="privacy">Photos stay on your machine. No upload, no network.</p>
+</header>
+
+<main class="studio">
+  <section class="stage">
+    <canvas id="cover" width="1080" height="1080" aria-label="Live cover preview"></canvas>
+    <p class="hint">Click a panel to select it &middot; drag inside it to reposition the photo</p>
+  </section>
+
+  <aside class="panel">
+    <section class="group">
+      <h2>1 · Photos</h2>
+      <label class="file">
+        Add your photos
+        <input id="photos" type="file" accept="image/*" multiple>
+      </label>
+      <button id="useSamples" type="button" class="ghost">Use the sample photos</button>
+      <div id="tray" class="tray" aria-label="Loaded photos"></div>
+    </section>
+
+    <section class="group">
+      <h2>2 · Layout</h2>
+      <div id="layouts" class="picks"></div>
+    </section>
+
+    <section class="group">
+      <h2>3 · Colour grade</h2>
+      <div id="grades" class="swatches"></div>
+    </section>
+
+    <section class="group">
+      <h2>4 · Words</h2>
+      <label>Title
+        <input id="title" type="text" maxlength="24" value="NEON COAST">
+      </label>
+      <label>Script subtitle
+        <input id="subtitle" type="text" maxlength="32" value="sunset drive">
+      </label>
+      <div id="presets" class="chips"></div>
+    </section>
+
+    <section class="group">
+      <h2>5 · Selected panel</h2>
+      <p id="panelLabel" class="panel-label">Panel 1 of 9</p>
+      <label>Photo in this panel
+        <select id="photoSelect"></select>
+      </label>
+      <label>Zoom <span id="zoomVal">100%</span>
+        <input id="zoom" type="range" min="100" max="300" value="100">
+      </label>
+      <div class="row">
+        <button id="fillAll" type="button" class="ghost">Fill all panels</button>
+        <button id="resetPan" type="button" class="ghost">Reset position</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>6 · Finish</h2>
+      <div class="checks">
+        <label><input id="fx-badge" type="checkbox" checked> Badge ribbon</label>
+        <label><input id="fx-grain" type="checkbox" checked> Film grain</label>
+        <label><input id="fx-halftone" type="checkbox" checked> Halftone dots</label>
+        <label><input id="fx-vignette" type="checkbox" checked> Vignette</label>
+      </div>
+      <div id="sizes" class="picks"></div>
+      <div class="row">
+        <button id="shuffle" type="button" class="ghost">Shuffle look</button>
+        <button id="export" type="button" class="primary">Export PNG</button>
+      </div>
+      <p id="status" role="status"></p>
+    </section>
+  </aside>
+</main>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
